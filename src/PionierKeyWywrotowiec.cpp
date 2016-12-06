@@ -56,22 +56,22 @@ char getche(void)
  */
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "talker");
+  ros::init(argc, argv, "pionier_key_wywrotowiec");
   ros::NodeHandle n;
-	ros::Publisher chatter_pub = n.advertise<geometry_msgs::Twist>("/pioneer2dx/cmd_vel", 10);
-
-	gazebo_msgs::ModelState modelState;
+  ros::Publisher chatter_pub = n.advertise<geometry_msgs::Twist>("/pioneer2dx/cmd_vel", 10);
+  
+  gazebo_msgs::ModelState modelState;
 	
-	geometry_msgs::Pose pose;
-	geometry_msgs::Twist twist;
+  geometry_msgs::Pose pose;
+  geometry_msgs::Twist twist;
   
   ros::ServiceClient client = n.serviceClient<gazebo_msgs::SetModelState>("/gazebo/set_model_state");
   gazebo_msgs::SetModelState setmodelstate;
   gazebo_msgs::ModelState modelstate;
   modelstate.model_name ="pioneer2dx";
-	modelstate.pose = pose;
-	modelstate.twist = twist;
-	setmodelstate.request.model_state=modelstate;         
+  modelstate.pose = pose;
+  modelstate.twist = twist;
+  setmodelstate.request.model_state=modelstate;         
 
 	if (client.call(setmodelstate))
 	{
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		ROS_ERROR("Failed to call service for setmodelstate ");
+		ROS_ERROR("Failed to call service for setmodelstate");
 		return 1;
 	}
 		
@@ -101,42 +101,48 @@ int main(int argc, char **argv)
 		c=getch();
     switch(c)
     {
+			case 'A':
       case 'a':
 				ROS_DEBUG("LEFT");        
 				ang = -1;
         dirty = true;
         break;
+			case 'D':
       case 'd':
         ROS_DEBUG("RIGHT");
         ang = 1;
         dirty = true;
         break;
+			case 'W':
       case 'w':
         ROS_DEBUG("UP");
         lin = -1;
         dirty = true;
         break;
+			case 'S':
       case 's':
         ROS_DEBUG("DOWN");
         lin = 1;
         dirty = true;
         break;
+			case 'F':
 			case 'f':
 				ROS_DEBUG("STOP");
 				dirty = true;
 				break;
+			case 'Q':
 			case 'q':
 				ROS_DEBUG("EXIT");	
         return 0;
     }
 
-    if(dirty ==true)
+    if(dirty == true)
     {
 			twist.linear.x = skala * lin;
 			twist.angular.z = skala * ang * 5;
 			chatter_pub.publish(twist);			
 
-      dirty=false;
+      dirty = false;
     }
   }
 
