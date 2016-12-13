@@ -90,10 +90,10 @@ int main(int argc, char **argv)
 	int lin = 0;
 
   
-
+	puts("Wywrotowiec wita");
   puts("Reading from keyboard");
   puts("---------------------------");
-  puts("Use WASD to move the robot (Q - exit, F - stop)");
+  puts("Use WASD to move the robot (Q - exit, F - stop, R - reset do [0, 0], T - morderstwo)");
 
   while(1)
   {
