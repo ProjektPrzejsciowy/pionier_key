@@ -59,7 +59,8 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "talker");
   ros::NodeHandle n;
-	ros::Publisher chatter_pub = n.advertise<geometry_msgs::Twist>("/pioneer2dx/cmd_vel", 10);
+	/* Tu zmienić nazwę robota! */
+	ros::Publisher chatter_pub = n.advertise<geometry_msgs::Twist>("/pioneer2dx_with_sensors/cmd_vel", 10);
 
 	gazebo_msgs::ModelState modelState;
 	
