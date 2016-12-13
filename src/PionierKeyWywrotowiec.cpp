@@ -164,6 +164,22 @@ int main(int argc, char **argv)
 					twist.angular.z = skala * ang * 5;
 					chatter_pub.publish(twist);	
 					usleep(1000000);	
+
+					lin = 0;
+					ang = -1;
+					
+					twist.linear.x = skala * lin;
+					twist.angular.z = skala * ang * 5;
+					chatter_pub.publish(twist);
+					usleep(500000);
+
+					lin = 1;
+					ang = 0;
+
+		      twist.linear.x = skala * lin;
+					twist.angular.z = skala * ang * 5;
+					chatter_pub.publish(twist);	
+					usleep(1000000);	
 				}
 			case 'q':
       case 'Q':
