@@ -13,6 +13,7 @@
 #include <iostream>
 #include "../inc/keyboard.h"
 #include <SDL/SDL.h>
+
 using namespace std;
 
 char c = 0;
