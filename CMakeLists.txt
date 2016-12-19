@@ -118,7 +118,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(pionier_key_wywrotowiec src/PionierKeyWywrotowiec.cpp)
+file(GLOB SOURCES
+  inc/*h
+  src/*.cpp    
+)
+add_executable(pionier_key_wywrotowiec ${SOURCES})
 target_link_libraries(pionier_key_wywrotowiec ${catkin_LIBRARIES})
 add_dependencies(pionier_key_wywrotowiec ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
