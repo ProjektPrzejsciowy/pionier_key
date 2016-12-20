@@ -36,7 +36,7 @@ namespace patch
 
 int main(int argc, char **argv)
 {
-	string robotName = "pioneer2dx";
+	string robotName = "pioneer_1/RosAria";
 	//string robotName = "pioneer2dx_with_sensors";
 	ros::init(argc, argv, "talker");
 	ros::NodeHandle n;
@@ -86,8 +86,8 @@ int main(int argc, char **argv)
 	}*/
 		
 	bool dirty = false;
-	double linSpeed = 1;
-	double angSpeed = 2;
+	double linSpeed = 0.2;
+	double angSpeed = 1;
 	int ang = 0;
 	int lin = 0;
 
