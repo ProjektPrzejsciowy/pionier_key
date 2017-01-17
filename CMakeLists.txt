@@ -118,13 +118,18 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-file(GLOB SOURCES
-  inc/*h
-  src/*.cpp    
+file(GLOB wywro_SOURCES
+  inc/keyboard.h
+  src/keyboard.cpp 
+  src/PionierKeyWywrotowiec.cpp   
 )
-add_executable(pionier_key_wywrotowiec ${SOURCES})
+add_executable(pionier_key_wywrotowiec ${wywro_SOURCES})
 target_link_libraries(pionier_key_wywrotowiec ${catkin_LIBRARIES})
 add_dependencies(pionier_key_wywrotowiec ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+add_executable(pionier_unstopableCircle src/randomCircle.cpp)
+target_link_libraries(pionier_unstopableCircle ${catkin_LIBRARIES})
+add_dependencies(pionier_unstopableCircle ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ library
 # add_library(no_idea
