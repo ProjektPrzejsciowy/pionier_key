@@ -17,3 +17,15 @@ W pliku pionier_key/inc/keyboard.h należy zmienić ścieżkę do klawiatury na 
 
 W razie braku SDL/SDL.h doinstalować bibliotekę libsdl:
 sudo apt-get install libsdl1.2-dev
+
+
+// Instalacja paczki
+cd ~/catkin_ws/src
+git clone https://github.com/ProjektPrzejsciowy/pionier_key.git
+cd ..
+catkin_make
+// ewentualnie komenda budujaca jedynia ta jedna paczke
+catkin_make --pkg pionier_key
+
+rosrun pionier_key pionier_unstopableCircle
+//w programie przyciski s/q startują/wyłączają sterowanie (wielkość liter się liczy :P) 
